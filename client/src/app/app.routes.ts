@@ -8,6 +8,7 @@ import { authGuard } from './_guards/auth-guard';
 import { TestErrors } from './errors/test-errors/test-errors';
 import { NotFound } from './errors/not-found/not-found';
 import { ServerError } from './errors/server-error/server-error';
+import { MemberEdit } from './members/member-edit/member-edit';
 
 export const routes: Routes = [
     {path: '',component: Home},
@@ -17,7 +18,8 @@ export const routes: Routes = [
         canActivate: [authGuard],
         children: [
             {path: 'members',component: MemberLists, canActivate: [authGuard]},
-            {path: 'members/:id',component: MemberDetail},
+            {path: 'members/:username',component: MemberDetail},
+            {path: 'member/edit',component: MemberEdit},
             {path: 'lists',component: Lists},
             {path: 'messages',component: Messages},
         ]

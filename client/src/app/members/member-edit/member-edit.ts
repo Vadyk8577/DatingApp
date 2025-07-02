@@ -1,9 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnInit, ViewChild } from '@angular/core';
 import { Member } from '../../_models/member';
 import { Account } from '../../_service/account';
 import { Members } from '../../_service/members';
 import { TabsModule } from 'ngx-bootstrap/tabs';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
+import {ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-member-edit',
@@ -12,9 +14,17 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './member-edit.css'
 })
 export class MemberEdit implements OnInit {
+  @ViewChild('editForm') editForm?: NgForm;
+  @HostListener('window:beforeunload',['$event']) notify($event:any){
+    if(this.editForm?.dirty){
+      $event.returnValue = true;
+    }
+  }
+
   member?: Member;
   private accountService = inject(Account);
   private memberService = inject(Members);
+  private toastr = inject(ToastrService);
 
   ngOnInit(): void {
     this.loadMember();
@@ -25,6 +35,15 @@ export class MemberEdit implements OnInit {
     if(!user) return;
     this.memberService.getMember(user.username).subscribe({
       next: member => this.member = member
+    })
+  }
+
+  updateMember(){
+    this.memberService.updateMember(this.editForm?.value).subscribe({
+      next: _ => {
+        this.toastr.success('Profile updated successfully');
+        this.editForm?.reset(this.member);
+      }
     })
   }
 }

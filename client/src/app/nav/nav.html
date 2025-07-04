@@ -22,7 +22,12 @@
         
 
         @if(accountService.currentUser()){
+            <img 
+            class="me-2"
+            src="{{accountService.currentUser()?.photoUrl}}"
+            alt="user main image">
         <div class="dropdown">
+            
             <a class="nav-link dropdown-toggle text-light text-decoration-none"
                 href="#"
                 role="button"

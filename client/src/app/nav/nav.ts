@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav',
-  imports: [FormsModule,CommonModule,RouterLink,RouterLinkActive,TitleCasePipe],
+  imports: [FormsModule,CommonModule,RouterLink,RouterLinkActive],
   templateUrl: './nav.html',
   styleUrl: './nav.css'
 })

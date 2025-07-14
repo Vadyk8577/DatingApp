@@ -1,8 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Members } from '../../_service/members';
+import { Members } from '../../_services/members';
 import { MemberCard } from "../member-card/member-card";
 import {PaginationModule} from 'ngx-bootstrap/pagination';
-import { Account } from '../../_service/account';
+import { Account } from '../../_services/account';
 import { UserParams } from '../../_models/userParams';
 import { FormsModule } from '@angular/forms';
 import {ButtonsModule} from 'ngx-bootstrap/buttons';

@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
-import { Account } from '../_service/account';
+import { Account } from '../_services/account';
 import { NgIf } from '@angular/common';
 import { TestErrors } from "../errors/test-errors/test-errors";
 import { TextInput } from "../_forms/text-input/text-input";

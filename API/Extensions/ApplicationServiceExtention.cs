@@ -24,6 +24,7 @@ public static class ApplicationServiceExtention
         services.AddScoped<LogUsersActivity>();
         services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
         services.AddScoped<IPhotoService,PhotoService>();
+        services.AddScoped<ILikeRepository, LikeRepository>();
 
         return services;
     }

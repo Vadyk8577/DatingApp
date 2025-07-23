@@ -1,53 +1,14 @@
-// import { Component, inject } from '@angular/core';
-// import { FormsModule } from '@angular/forms';
-// import { Account } from '../_services/account';
-// import { CommonModule, TitleCasePipe } from '@angular/common';
-// import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-// import { ToastrService } from 'ngx-toastr';
-
-
-
-// @Component({
-//   selector: 'app-nav',
-//   imports: [FormsModule,CommonModule,RouterLink,RouterLinkActive],
-//   templateUrl: './nav.html',
-//   styleUrl: './nav.css'
-// })
-// export class Nav {
-//   accountService = inject(Account);
-//   private router = inject(Router)
-//   private toastr = inject(ToastrService);
-//   model: any = {};
-
-//   login(){
-//     this.accountService.login(this.model).subscribe({
-//       next: _ => {
-//         this.router.navigateByUrl('/members')
-//       },
-//       error: error => this.toastr.error(error.error)
-//     })
-//   }
-
-//   logout(){
-//     this.accountService.logout();
-//     this.router.navigateByUrl('/');
-//   }
-//   onImageError(event: Event) {
-//   const img = event.target as HTMLImageElement;
-//   img.src = 'assets/user.png';  // fallback path relative to `src/assets`
-// }
-
-// }
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Account } from '../_services/account';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { HasRole } from '../_directives/has-role';
 
 @Component({
   selector: 'app-nav',
-  imports: [FormsModule, CommonModule, RouterLink, RouterLinkActive],
+  imports: [FormsModule, CommonModule, RouterLink, RouterLinkActive, HasRole],
   templateUrl: './nav.html',
   styleUrl: './nav.css'
 })

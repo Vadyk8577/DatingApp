@@ -20,13 +20,14 @@ public static class ApplicationServiceExtention
         });
         services.AddCors();
         services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.AddScoped<LogUsersActivity>();
         services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
         services.AddScoped<IPhotoService,PhotoService>();
         services.AddScoped<ILikeRepository, LikeRepository>();
-        services.AddScoped<iMessageRepository, MessageRepository>();
+        services.AddScoped<IMessageRepository, MessageRepository>();
         services.AddSignalR();
         services.AddSingleton<PresenceTracker>();
 

@@ -5,7 +5,7 @@ using API.Helpers;
 
 namespace API.Interfaces;
 
-public interface iMessageRepository
+public interface IMessageRepository
 {
     void AddMessage(Message message);
 
@@ -16,8 +16,6 @@ public interface iMessageRepository
     Task<PagedList<MessageDto>> GetMessagesForUser(MessageParams messageParams);
 
     Task<IEnumerable<MessageDto>> GetMessageThread(string currentUsername, string recipientUsername);
-
-    Task<bool> SaveAllAsync();
 
     void AddGroup(Group group);
 

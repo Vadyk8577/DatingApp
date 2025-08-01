@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule, NgIf, TestErrors, TextInput, DatePicker],
+  imports: [ReactiveFormsModule,TextInput, DatePicker],
   templateUrl: './register.html',
   styleUrl: './register.css'
 })

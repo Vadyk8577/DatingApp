@@ -27,6 +27,10 @@ app.UseCors(x => x.AllowAnyMethod().AllowAnyHeader().AllowCredentials()
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
+app.MapFallbackToController("Index", "FallBack");
+
 app.MapControllers();
 app.MapHub<PresenceHub>("hubs/presence");
 app.MapHub<MessageHub>("hubs/message");

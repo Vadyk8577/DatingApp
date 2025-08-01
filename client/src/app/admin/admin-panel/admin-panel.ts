@@ -7,7 +7,7 @@ import { PhotoManagement } from "../photo-management/photo-management";
 
 @Component({
   selector: 'app-admin-panel',
-  imports: [TabsModule, UserManagment, HasRole, PhotoEditor, PhotoManagement],
+  imports: [TabsModule, UserManagment, HasRole, PhotoManagement],
   templateUrl: './admin-panel.html',
   styleUrl: './admin-panel.css'
 })
